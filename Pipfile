@@ -8,6 +8,8 @@ django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 twilio = "*"
+python-dotenv = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 

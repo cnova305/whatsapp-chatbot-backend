@@ -11,8 +11,15 @@ from django.views.decorators.csrf import csrf_exempt
 
 from .models import WhatsAppMessage
 
-account_sid = 'ACfed9835a3dfdd5eb7c7e29ce1da3980e'
-auth_token = '96cb14f4af6dc9197a719f88a9a20d87'
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # take environment variables from .env.
+
+
+account_sid = os.environ.get('ACCOUNT_SID')
+auth_token = os.environ.get('AUTH_TOKEN')
+auth_token = '948e681805723cffd5ddbca379a424dc'
 client = Client(account_sid, auth_token)
 
 # Create your views here.
@@ -59,6 +66,13 @@ def whatsAppMessageReceive(request):
     messageBody = request.data['Body']
     newWhatsAppMessage = WhatsAppMessage(messageSender=messageSender, messageBody=messageBody)
     newWhatsAppMessage.save()
+
+    if request.data:
+        client.messages.create(
+            from_='whatsapp:+14155238886',
+            body='Hey There {}! Welcome to my WhatsApp bot'.format(messageSender),
+            to=messageSender,
+        )
 
 
     return HttpResponse('hello')
