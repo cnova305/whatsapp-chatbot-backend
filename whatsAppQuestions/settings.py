@@ -138,7 +138,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     'https://localhost:3000', 'https://fbb7-41-216-203-70.sa.ngrok.io'
 # ]
 
-CSRF_TRUSTED_ORIGINS = ['https://fbb7-41-216-203-70.sa.ngrok.io']
+CSRF_TRUSTED_ORIGINS = ['https://fbb7-41-216-203-70.sa.ngrok.io', 'https://smart-wage-task-backend.herokuapp.com']
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
