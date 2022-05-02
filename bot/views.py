@@ -9,6 +9,8 @@ from .serializers import WhatsAppMessageSerializer
 from twilio.rest import Client
 from django.views.decorators.csrf import csrf_exempt
 
+from rest_framework_simplejwt.tokens import RefreshToken
+
 from .models import WhatsAppMessage
 
 import os
@@ -76,3 +78,12 @@ def whatsAppMessageReceive(request):
 
 
     return HttpResponse('hello')
+
+@api_view(['POST'])
+def whatsAppMessageAccessToken(user):
+    refresh = RefreshToken.for_user(user)
+
+    return {
+        'access': str(refresh.access_token),
+    }
+

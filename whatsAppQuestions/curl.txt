@@ -1,0 +1,5 @@
+curl \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"username": "admin", "password": "Your-favourite-job-applicant-2022"}' \
+  https://d069-41-216-203-70.sa.ngrok.io/api/token/
