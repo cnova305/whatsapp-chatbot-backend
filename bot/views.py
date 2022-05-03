@@ -19,9 +19,8 @@ from dotenv import load_dotenv
 load_dotenv()  # take environment variables from .env.
 
 
-account_sid = os.environ.get('ACCOUNT_SID')
-auth_token = os.environ.get('AUTH_TOKEN')
-auth_token = '948e681805723cffd5ddbca379a424dc'
+account_sid = os.environ.get('ACCOUNT_SID', 'DUMMY')
+auth_token = os.environ.get('AUTH_TOKEN', 'ANOTHER DUMMY')
 client = Client(account_sid, auth_token)
 
 # Create your views here.
